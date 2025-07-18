@@ -10,21 +10,38 @@ import { Label } from '@/components/ui/label';
 export default function Contact() {
   return (
     <div className="bg-background text-foreground">
-      <section className="relative py-20 md:py-32 hero-pattern-overlay">
-        <div className="absolute inset-0 bg-primary/90"></div>
-        <div className="container mx-auto text-center relative">
-          <Badge variant="secondary" className="mb-4 text-lg px-4 py-2">
-            <Phone className="w-4 h-4 mr-2" />
-            Get in Touch
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
-            Contact Us
-          </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto">
-            We're here to help you on your athletic journey. Reach out with any questions or to schedule a session.
-          </p>
+      
+      <div className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-primary/80"></div>
+        <div className="absolute inset-0 bg-[url('/src/assets/hero-pattern.jpg')] bg-cover bg-center opacity-20"></div>
+        
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+          <div className="mb-8">
+            <Phone className="w-16 h-16 mx-auto mb-4 text-yellow-400" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-yellow-400 bg-clip-text text-transparent">
+              Contact Us
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-gray-200">
+              We're here to help you on your athletic journey. Reach out with any questions or to schedule a session.
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex items-center space-x-2 text-yellow-400">
+              <MapPin className="w-5 h-5" />
+              <span className="font-semibold">Saint Charles, MO</span>
+            </div>
+            <div className="flex items-center space-x-2 text-yellow-400">
+              <Phone className="w-5 h-5" />
+              <span className="font-semibold">(636) 757-3004</span>
+            </div>
+            <div className="flex items-center space-x-2 text-yellow-400">
+              <Clock className="w-5 h-5" />
+              <span className="font-semibold">Mon-Thu 5-8 PM</span>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto">

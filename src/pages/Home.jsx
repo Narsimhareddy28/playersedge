@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
+import { Link } from 'react-router-dom'
 import { 
   Phone,
   MapPin, 
@@ -26,13 +27,12 @@ import {
 import facility2 from '../assets/facility2.jpg'
 import baseball from '../assets/baseball.png'
 import hero from '../assets/hero-bg.jpg'
-import BookingFlow from '../components/ui/BookingFlow.jsx'
+import softball from '../assets/softballl.png'
 
 export default function Home() {
-  const [isBookingOpen, setIsBookingOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  const heroImages = [hero, baseball]
+  const heroImages = [hero, baseball, softball]
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -138,27 +138,6 @@ export default function Home() {
     { number: "24/7", label: "Support", icon: <Shield className="w-8 h-8" /> }
   ]
 
-  const testimonials = [
-    {
-      name: "Alex Rodriguez",
-      role: "High School Baseball Player",
-      content: "The training at Player's Edge transformed my game completely. I went from bench player to team captain!",
-      rating: 5
-    },
-    {
-      name: "Maria Santos",
-      role: "College Softball Player",
-      content: "Coach Sarah's techniques helped me earn a scholarship. The facility is world-class!",
-      rating: 5
-    },
-    {
-      name: "John Mitchell",
-      role: "Amateur Golfer",
-      content: "My handicap improved by 8 strokes in just 3 months. Incredible results!",
-      rating: 5
-    }
-  ]
-
   return (
     <>
       <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
@@ -188,11 +167,13 @@ export default function Home() {
               softball to golf and performance training, we help athletes reach their full potential.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button size="lg" className="btn-primary text-lg px-8 py-4 text-xl" onClick={() => setIsBookingOpen(true)}>
-                <Play className="mr-2 h-6 w-6" />
-                Book Your Session
-                <ChevronRight className="ml-2 h-6 w-6" />
-              </Button>
+              <Link to="/book-now">
+                <Button size="lg" className="btn-primary text-lg px-8 py-4 text-xl">
+                  <Play className="mr-2 h-6 w-6" />
+                  Book Your Session
+                  <ChevronRight className="ml-2 h-6 w-6" />
+                </Button>
+              </Link>
               <Button
                 size="lg"
                 variant="outline"
@@ -322,49 +303,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="section-padding bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 fade-in-up">
-            <Badge variant="secondary" className="mb-4 text-lg px-4 py-2">
-              <Star className="w-4 h-4 mr-2" />
-              Testimonials
-            </Badge>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              What Our <span className="text-gradient">Athletes</span> Say
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="card-hover glass-effect border-0 shadow-xl fade-in-up" style={{animationDelay: `${index * 0.2}s`}}>
-                <CardHeader>
-                  <div className="flex items-center mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <CardDescription className="text-lg italic">
-                    "{testimonial.content}"
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
-                      <Users className="w-6 h-6 text-primary-foreground" />
-                    </div>
-                    <div>
-                      <p className="font-semibold">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
+    
       {/* Instructors Section */}
       <section id="instructors" className="section-padding bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -556,10 +495,12 @@ export default function Home() {
                 <CardTitle className="text-2xl font-semibold text-white">Book Online</CardTitle>
               </CardHeader>
               <CardContent>
-                <Button className="btn-primary text-lg px-6 py-3 w-full" onClick={() => setIsBookingOpen(true)}>
-                  <Sparkles className="w-5 h-5 mr-2" />
-                  Schedule Now
-                </Button>
+                <Link to="/book-now">
+                  <Button className="btn-primary text-lg px-6 py-3 w-full">
+                    <Sparkles className="w-5 h-5 mr-2" />
+                    Schedule Now
+                  </Button>
+                </Link>
                 <p className="text-white/70 mt-2">Instant confirmation</p>
               </CardContent>
             </Card>
@@ -567,7 +508,6 @@ export default function Home() {
         </div>
       </section>
 
-      {isBookingOpen && <BookingFlow onClose={() => setIsBookingOpen(false)} />}
     </>
   )
 } 

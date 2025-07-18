@@ -4,7 +4,7 @@ import { Menu, Sparkles, X, LogIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo1.png';
 
-export default function Navbar({ setIsBookingOpen }) {
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -16,8 +16,8 @@ export default function Navbar({ setIsBookingOpen }) {
             <div className="ml-3 font-bold tracking-wider flex flex-col leading-none">
               <div className="text-xl">
                 <span className="text-white italic">Player's</span> <span className="text-yellow-400 italic">Edge</span>
-                <div className="text-lg text-white font-medium">Performance</div>
               </div>
+              <div className="text-lg text-white">Performance</div>
             </div>
           </div>
           <div className="hidden md:flex items-center">
@@ -26,16 +26,19 @@ export default function Navbar({ setIsBookingOpen }) {
             <Link to="/rentals" className="hover:bg-primary/80 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105">Rentals</Link>
             <Link to="/instructors" className="hover:bg-primary/80 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105">Instructors</Link>
             <Link to="/facility" className="hover:bg-primary/80 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105">Facility</Link>
+            <Link to="/announcements" className="hover:bg-primary/80 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105">Announcements</Link>
             <Link to="/contact" className="hover:bg-primary/80 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105">Contact</Link>
             <div className="ml-4 flex items-center space-x-2">
               <Button variant="secondary" size="sm">
                 <LogIn className="mr-2 h-4 w-4" />
                 Sign In
               </Button>
-              <Button className="btn-primary neon-border" size="sm" onClick={() => setIsBookingOpen(true)}>
-                <Sparkles className="w-4 h-4 mr-2" />
-                Book Now
-              </Button>
+              <Link to="/book-now">
+                <Button className="btn-primary neon-border" size="sm">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  Book Now
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="-mr-2 flex md:hidden">
@@ -60,6 +63,7 @@ export default function Navbar({ setIsBookingOpen }) {
             <Link to="/rentals" className="hover:bg-primary/80 block px-3 py-2 rounded-md text-base font-medium">Rentals</Link>
             <Link to="/instructors" className="hover:bg-primary/80 block px-3 py-2 rounded-md text-base font-medium">Instructors</Link>
             <Link to="/facility" className="hover:bg-primary/80 block px-3 py-2 rounded-md text-base font-medium">Facility</Link>
+            <Link to="/announcements" className="hover:bg-primary/80 block px-3 py-2 rounded-md text-base font-medium">Announcements</Link>
             <Link to="/contact" className="hover:bg-primary/80 block px-3 py-2 rounded-md text-base font-medium">Contact</Link>
             <div className="mt-4 space-y-2">
               <Button variant="secondary" className="w-full" onClick={() => { setIsMenuOpen(false); }}>
@@ -67,10 +71,12 @@ export default function Navbar({ setIsBookingOpen }) {
                 Sign In
               </Button>
             </div>
-            <Button className="w-full mt-4 btn-primary" onClick={() => { setIsBookingOpen(true); setIsMenuOpen(false); }}>
-              <Sparkles className="w-4 h-4 mr-2" />
-              Book Now
-            </Button>
+            <Link to="/book-now">
+              <Button className="w-full mt-4 btn-primary" onClick={() => setIsMenuOpen(false)}>
+                <Sparkles className="w-4 h-4 mr-2" />
+                Book Now
+              </Button>
+            </Link>
           </div>
         </div>
       )}

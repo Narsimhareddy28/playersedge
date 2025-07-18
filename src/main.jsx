@@ -11,6 +11,8 @@ import Rentals from './pages/Rentals.jsx'
 import Instructors from './pages/Instructors.jsx'
 import Facility from './pages/Facility.jsx'
 import Contact from './pages/Contact.jsx'
+import Announcements from './pages/Announcements.jsx'
+import BookNow from './pages/BookNow.jsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/announcements",
+        element: <Announcements />,
+      },
+      {
+        path: "/book-now",
+        element: <BookNow />,
       },
     ],
   },

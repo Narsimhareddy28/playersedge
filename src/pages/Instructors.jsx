@@ -42,21 +42,37 @@ const instructors = [
 export default function Instructors() {
   return (
     <div className="bg-background text-foreground">
-      <section className="relative py-20 md:py-32 hero-pattern-overlay">
-        <div className="absolute inset-0 bg-primary/90"></div>
-        <div className="container mx-auto text-center relative">
-          <Badge variant="secondary" className="mb-4 text-lg px-4 py-2">
-            <Award className="w-4 h-4 mr-2" />
-            Our Expert Team
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
-            Meet Our World-Class Instructors
-          </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto">
-            Learn from the best. Our instructors are dedicated professionals with a passion for helping athletes succeed.
-          </p>
+      <div className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-primary/80"></div>
+        <div className="absolute inset-0 bg-[url('/src/assets/hero-pattern.jpg')] bg-cover bg-center opacity-20"></div>
+        
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+          <div className="mb-8">
+            <Award className="w-16 h-16 mx-auto mb-4 text-yellow-400" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-yellow-400 bg-clip-text text-transparent">
+              Meet Our Expert Coaches
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-gray-200">
+              Learn from experienced professionals who are passionate about helping you achieve your athletic goals.
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex items-center space-x-2 text-yellow-400">
+              <Star className="w-5 h-5 fill-current" />
+              <span className="font-semibold">4.9/5 Rating</span>
+            </div>
+            <div className="flex items-center space-x-2 text-yellow-400">
+              <Users className="w-5 h-5" />
+              <span className="font-semibold">650+ Students</span>
+            </div>
+            <div className="flex items-center space-x-2 text-yellow-400">
+              <Award className="w-5 h-5" />
+              <span className="font-semibold">Professional Certified</span>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto">

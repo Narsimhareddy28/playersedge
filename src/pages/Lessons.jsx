@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 import baseballImg from '../assets/baseball.png';
-import softballImg from '../assets/sports-equipment.jpg';
+import softballImg from '../assets/softballl.png';
 import golfImg from '../assets/facility2.jpg';
-import performanceImg from '../assets/facility1.jpg';
+import performanceImg from '../assets/training.png';
 
 const lessons = [
   {
@@ -25,40 +25,56 @@ const lessons = [
     features: ['Fastpitch & Slowpitch Training', 'Strength & Conditioning', 'Team Practice Sessions', 'Recruiting Guidance'],
     imgSrc: softballImg,
   },
-  {
-    icon: <Trophy className="w-10 h-10" />,
-    title: 'Indoor Golf League',
-    description: 'Join our year-round indoor golf league to keep your skills sharp, no matter the weather. Our simulators provide a realistic and challenging environment for competitive play and practice.',
-    features: ['Weekly League Matches', 'Advanced Swing Analytics', 'Pro-Level Courses', 'Handicap Tracking'],
-    imgSrc: golfImg,
-  },
-  {
-    icon: <Zap className="w-10 h-10" />,
-    title: 'Performance Training',
-    description: 'Elevate your athleticism with our performance training programs. We focus on developing speed, agility, strength, and endurance to give you a competitive edge in any sport.',
-    features: ['Customized Workout Plans', 'Agility Ladder & Cone Drills', 'Explosive Power Training', 'Nutritional Guidance'],
-    imgSrc: performanceImg,
-  },
+  // {
+  //   icon: <Trophy className="w-10 h-10" />,
+  //   title: 'Indoor Golf League',
+  //   description: 'Join our year-round indoor golf league to keep your skills sharp, no matter the weather. Our simulators provide a realistic and challenging environment for competitive play and practice.',
+  //   features: ['Weekly League Matches', 'Advanced Swing Analytics', 'Pro-Level Courses', 'Handicap Tracking'],
+  //   imgSrc: golfImg,
+  // },
+  // {
+  //   icon: <Zap className="w-10 h-10" />,
+  //   title: 'Performance Training',
+  //   description: 'Elevate your athleticism with our performance training programs. We focus on developing speed, agility, strength, and endurance to give you a competitive edge in any sport.',
+  //   features: ['Customized Workout Plans', 'Agility Ladder & Cone Drills', 'Explosive Power Training', 'Nutritional Guidance'],
+  //   imgSrc: performanceImg,
+  // },
 ];
 
 export default function Lessons() {
   return (
     <div className="bg-background text-foreground">
-      <section className="relative py-20 md:py-32 hero-pattern-overlay">
-        <div className="absolute inset-0 bg-primary/90"></div>
-        <div className="container mx-auto text-center relative">
-          <Badge variant="secondary" className="mb-4 text-lg px-4 py-2">
-            <Sparkles className="w-4 h-4 mr-2" />
-            Our Lessons
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
-            Expert-Led Training Programs
-          </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto">
-            Unlock your full potential with our specialized training programs, designed to deliver results and give you a competitive advantage.
-          </p>
+      <div className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-primary/80"></div>
+        <div className="absolute inset-0 bg-[url('/src/assets/hero-pattern.jpg')] bg-cover bg-center opacity-20"></div>
+        
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+          <div className="mb-8">
+            <Sparkles className="w-16 h-16 mx-auto mb-4 text-yellow-400" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-yellow-400 bg-clip-text text-transparent">
+              Professional Training Lessons
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-gray-200">
+              Comprehensive training programs designed to develop your skills and take your game to the next level.
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex items-center space-x-2 text-yellow-400">
+              <Target className="w-5 h-5" />
+              <span className="font-semibold">All Sports</span>
+            </div>
+            <div className="flex items-center space-x-2 text-yellow-400">
+              <Calendar className="w-5 h-5" />
+              <span className="font-semibold">Flexible Scheduling</span>
+            </div>
+            <div className="flex items-center space-x-2 text-yellow-400">
+              <CheckCircle className="w-5 h-5" />
+              <span className="font-semibold">Proven Results</span>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto">
